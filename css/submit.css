@@ -1,0 +1,323 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /*color: white;*/
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: black;
+    display: flex;
+    flex-direction: column; /* adicionado */ 
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: "Share Tech Mono", monospace;
+}
+
+/* =========== CARTÃO XP ===================== */
+
+.card {
+    background-color: #333;
+    border-radius: 12px;
+    padding: 20px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    justify-content: center;
+    align-items: center;
+    animation: pulsar 7s infinite;
+    margin-bottom: 40px; /* adicionado */
+}
+
+.exp-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+
+.exp-header .icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(0, 255, 0, 0.849);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.exp-header .icon img {
+    width: 31px; /*20 por 20*/
+    height: 31px;
+}
+
+.exp-header .exp-points {
+    font-size: 18px;
+    color: #0f0;
+    font-weight: bold;
+}
+
+
+.progress-bar {
+    background-color: #e6e6e6;
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 10px 0;
+    height: 8px;
+}
+
+.progress {
+    width: 80%;
+    height: 100%;
+    background-color: #0f0;
+}
+
+.level-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #737373;
+}
+
+.notification {
+    background-color: #506b7a;
+    border-radius: 12px;
+    padding: 15px;
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+}
+
+.notification .icon {
+    background-color: #0f0;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.notification .icon img {
+    width: 15px;
+    height: 15px;
+}
+
+.notification-text {
+    margin-left: 15px;
+    font-size: 14px;
+}
+
+.notification-close {
+    cursor: pointer;
+    font-size: 18px;
+    color: #ffffffa0;
+}
+
+.highlight {
+    font-weight: bold;
+    color: #fff;
+}
+
+@media (max-width: 600px) {
+    .card {
+        max-width: 100%;
+        padding: 15px;
+    }
+
+    .exp-header .exp-points {
+        font-size: 16px;
+    }
+
+    .notification-text {
+        font-size: 12px;
+    }
+}
+
+@keyframes pulsar {
+    0% {
+        box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+    }
+    
+    50% {
+        box-shadow: 0 0 20px rgba(0, 255, 0, 1);
+    }
+
+    100% {
+        box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+    }
+}
+
+
+/* =============== BARRAS PROGRESSO ==================== */
+
+.container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.container .card-circulo {
+    position: relative;
+    width: 220px;
+    height: 250px;
+    background: #2a2a2a;
+    border-radius: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: pulsar 5s linear forwards;
+}
+
+.container .card-circulo .porcento {
+    position: relative;
+    width: 150px;
+    height: 150px;
+}
+
+.container .card-circulo .porcento svg {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    transform: rotate(270deg);
+}
+.container .card-circulo .porcento svg circle {
+    width: 100%;
+    height: 100%;
+    fill: transparent;
+    stroke-width: 2;
+    stroke: #191919;
+    transform: translate(5px, 5px);
+}
+
+.container .card-circulo .porcento svg circle:nth-child(2){
+    stroke: var(--clr);
+    stroke-dasharray: 440;
+    stroke-dashoffset: calc(440 - (440 * var(--num)) / 100 );
+    opacity: 0;
+    animation: fadeIn 1s linear forwards;
+    animation-delay: 2.5s;
+}
+
+@keyframes fadeIn
+{
+    0% 
+    {
+        opacity: 0;
+    }
+    100% 
+    {
+        opacity: 1;
+    }
+}
+
+.dot {
+    position: absolute;
+    inset: 5px;
+    z-index: 10;
+    transform: rotate(calc(3.6deg * var(--num)));
+    animation: animaDot 2s linear forwards;
+}
+
+@keyframes animaDot
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(calc(3.6deg * var(--num)));
+    }
+
+}
+
+.dot::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--clr);
+
+    box-shadow: 0 0 10px var(--clr), 
+    0 0 30px var(--clr);
+}
+
+.num {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    opacity: 0;
+    animation: fadeIn 1s linear forwards;
+    animation-delay: 2.5s;
+}
+
+.num h2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-weight: 700;
+    font-size: 2.5em;
+}
+
+.num h2 span {
+    font-weight: 300;
+    color: #fff;
+    font-size: 0.5rem;
+}
+
+.num p {
+    font-weight: 300;
+    font-size: 0.75em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.container-text h2 {
+    display: flex;
+    flex-direction: column;
+    color: #fffffff0;
+    font-size: 25px;
+    margin-bottom: 40px;
+}
+
+/* ====== Botão voltar ======= */
+
+.btn-return {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    text-decoration: none;
+    color: #ffffff; /* cor fonte */
+    background-color: #333;
+    /* fundo cor */
+    border: none;
+    border-radius: 7%; /* arredondamento */
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn-return:hover {
+    background-color: #444;
+    /* fundo ao clicar */
+}

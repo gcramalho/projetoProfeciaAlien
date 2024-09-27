@@ -1,0 +1,403 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+
+/* - LINHAS COMENTADAS = histórico de modificação */
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #000;
+    /* Fundo escuro*/
+    margin: 0;
+    font-family: "Share Tech Mono", monospace;
+}
+
+
+#alien {
+    position: absolute;
+    align-self: center;
+    width: 40%;
+    /*450px;*/
+    height: auto;
+    /* 450px*/
+    top: 22%;
+    /*9vw; /*280px;*/
+    right: -2%;
+    /*-3vw; /*160px;*/
+    animation: flutuar 4s ease-in-out infinite;
+    gap: 1rem;
+}
+
+#alien img {
+    filter: drop-shadow(0 0 10px #00ff00);
+    animation: glow 2.5s ease-in-out infinite alternate;
+    width: 100%;
+    /*fit-content; */
+    height: auto;
+}
+
+/* ======== Visual texto ======== */
+
+.texto {
+    /* margin-top: 3%; /*3%*/
+    padding-top: 0.5rem;
+    color: rgb(238, 234, 234);
+}
+
+.texto h2 {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 1.6rem;
+}
+
+.texto h4 {
+    font-size: 1.0rem;
+    letter-spacing: 0.1rem;
+    padding-top: 3rem;
+    padding-bottom: 0.5rem;
+}
+
+
+
+/* ======== Visual formulário ======== */
+
+.error-message {
+    color: red;
+    /* sets the text color to red */
+    font-size: 0.7em;
+    /* sets the font size to 0.8 times the default font size */
+    font-weight: bold;
+    /* sets the font weight to bold */
+    margin-bottom: 10px;
+    /* adds a 10px margin below the error message */
+    padding: 5px;
+    /* adds a 5px padding around the error message */
+    /*border: 1px solid red; /* adds a 1px solid red border around the error message */
+    /*border-radius: 5px; /* adds a 5px border radius to the error message */
+    background-color: transparent;
+    /* sets the background color to a light red */
+}
+
+
+.form-cosmico {
+    position: relative;
+    display: flex;
+    /**/
+    flex-direction: column;
+    /**/
+    justify-content: space-between;
+    /**/
+    height: auto
+        /*70%*/
+    ;
+    width: 75vw
+        /*70%*/
+    ;
+    background-color: #333;
+    padding: 2rem
+        /*20px*/
+    ;
+    padding-bottom: 2rem;
+    border-radius: 1rem
+        /*10px*/
+    ;
+    box-shadow: 0 0 2rem
+        /*20px*/
+        rgba(0, 255, 0, 0.7);
+    font-family: "Share Tech Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.5rem;
+    animation: pulsar 4s infinite;
+}
+
+.form-cosmico label {
+    font-size: 1.2rem
+        /*19px*/
+    ;
+    color: #0f0;
+}
+
+.form-cosmico input[type="number"] {
+    position: relative;
+    width: 20%;
+    /*90px;*/
+    height: 1.5rem
+        /*35px*/
+    ;
+    font-size: 1.2rem;
+    /*18px;*/
+    border: none;
+    border-radius: 1rem
+        /*10px*/
+    ;
+    background-color: #444;
+    color: rgb(210, 216, 210);
+}
+
+.form-cosmico input[type="date"] {
+    position: relative;
+    width: 28%;
+    /*90px;*/
+    height: 1.5rem
+        /*35px*/
+    ;
+    font-size: 1.2rem;
+    /*18px;*/
+    border: none;
+    border-radius: 1rem
+        /*10px*/
+    ;
+    background-color: #444;
+    color: rgb(210, 216, 210);
+}
+
+.input-wrapper {
+    flex-grow: 1;
+    /**/
+    display: flex;
+    /**/
+    flex-direction: column;
+    /*row*/
+    align-items: flex-start;
+    /* center */
+    justify-content: space-between;
+    padding-top: 0.5rem
+        /*5px*/
+    ;
+    gap: 1rem;
+}
+
+
+.input-idade {
+    /*margin-top: 40px*/
+    padding-top: 1.5rem;
+    margin-left: 0.8rem;
+}
+
+.input-nasc {
+    margin-top: 3rem;
+    margin-left: 0.5rem;
+}
+
+
+/* ======== Visual submit ======== */
+
+#container-botao {
+    display: flex;
+    justify-content: center;
+    /* Centraliza horizontalmente */
+    margin-top: 6rem;
+    /* Ajuste conforme necessário */
+}
+
+#container-botao button[type="submit"] {
+    margin: 0;
+    /*margin-left: 37%; /*37%*/
+    /*margin-top: 22vh; /*128px*/
+}
+
+
+.btn {
+    font-size: 0.5rem
+        /*15px*/
+    ;
+    width: 18rem
+        /*18rem*/
+    ;
+    height: 4rem;
+    /*4rem;*/
+    background-size: 300% 300%;
+    backdrop-filter: blur(1rem);
+    border-radius: 5rem;
+    /*5rem;*/
+    transition: 0.5s;
+    animation: gradiente 4s ease infinite;
+    border: double 0.2rem transparent;
+    /* 4px*/
+    background-image: linear-gradient(#212121, #212121), linear-gradient(137.48deg, #495ab0 10%, #1edf88 45%, #8f51ea 67%, #063fdd 87%);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    position: relative;
+}
+
+#container-estrelas {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    transition: 7s;
+    backdrop-filter: blur(0.8rem);
+    border-radius: 4rem
+        /*5rem;*/
+}
+
+strong {
+    z-index: 2;
+    font-size: 0.9rem;
+    /*13px;*/
+    letter-spacing: 0.3rem;
+    /*5px;*/
+    color: #fff;
+    text-shadow: 0 0 0.2rem
+        /*4px*/
+        white;
+}
+
+#brilho {
+    position: absolute;
+    display: flex;
+    width: 3rem;
+    /*12rem;*/
+}
+
+.circle {
+    width: 100%;
+    height: 4rem;
+    /*30px;*/
+    filter: blur(4rem
+            /*2rem*/
+        );
+    animation: brilhar 4s infinite;
+    /* 4s*/
+    z-index: -1;
+}
+
+.circle:nth-of-type(1) {
+    background: rgba(64, 219, 126, 0.636);
+}
+
+.circle:nth-of-type(2) {
+    background: rgba(142, 81, 234, 0.704);
+}
+
+.btn:hover #container-estrelas {
+    z-index: -1;
+    background-color: #212121;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+}
+
+.btn:active {
+    border: double 4px #fe53bb;
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    animation: none;
+}
+
+.btn:active .circle {
+    background: #fe53bb;
+}
+
+#estrelas {
+    position: relative;
+    background: transparent;
+    width: 200rem;
+    height: 200rem;
+}
+
+#estrelas::after {
+    content: "";
+    position: absolute;
+    top: -10rem;
+    left: -100rem;
+    width: 100%;
+    height: 100%;
+    animation: animEstrelaRotacao 90s linear infinite;
+    background-image: radial-gradient(#fff 1px, transparent 1%);
+    background-size: 50px 50px;
+}
+
+
+
+/* ======== Animação botão ======== */
+@keyframes animEstrelaRotacao {
+    from {
+        transform: rotate(190deg);
+    }
+
+    to {
+        transform: rotate(0);
+    }
+}
+
+
+@keyframes gradiente {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 50% 100%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+@keyframes brilhar {
+    0% {
+        transform: scale(0.75);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+    }
+
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+    }
+
+    100% {
+        transform: scale(0.75);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    }
+}
+
+/* ======== Animação pulsar fundo ======== */
+@keyframes pulsar {
+    0% {
+        box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+    }
+
+    50% {
+        box-shadow: 0 0 20px rgba(0, 255, 0, 1);
+    }
+
+    100% {
+        box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+    }
+}
+
+/* ======== Animação Alien ======== */
+@keyframes flutuar {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes glow {
+    0% {
+        filter: drop-shadow(0 0 3px #3e533e);
+    }
+
+    100% {
+        filter: drop-shadow(0 0 20px #46b346);
+    }
+}
